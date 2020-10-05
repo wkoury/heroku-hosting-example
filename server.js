@@ -5,7 +5,7 @@ const server = require("http").createServer(app);
 
 const port = process.env.PORT || 8085;
 
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.get("/api/ping", function (req, res) {
     return res.send("Backend connected!");
@@ -13,7 +13,7 @@ app.get("/api/ping", function (req, res) {
 
 // Handles any requests that don"t match the ones above
 app.get("*", (req,res) =>{
-    res.sendFile(path.join(__dirname+"../client/build/index.html"));
+    res.sendFile(path.join(__dirname+"/client/build/index.html"));
 });
 
 server.listen(port, () => {
